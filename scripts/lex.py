@@ -1,21 +1,19 @@
-"""
-Script to produce various forms of lemmas and look them up in input.
-"""
+"""Script to produce various forms of lemmas and look them up in input."""
 
 import sys
 import re
 from translit import translit
 
-yek = "ێک"
-yek_vocalic = "یەک"
-ka = "کە"
-aka = "ەکە"
-kan = "کان"
-akan = "ەکان"
-open_iza = "ە"
-open_iza_voc = "یە"
-closed_iza = "ی"
-ana = "انە"
+yek = "êk"
+yek_vocalic = "yek"
+ke = "ke"
+eke = "eke"
+kan = "kan"
+ekan = "ekan"
+open_iza = "e"
+open_iza_voc = "ye"
+closed_iza = "y"
+ane = "ane"
 
 # fname = "tabsep.txt"
 # counts = {}
