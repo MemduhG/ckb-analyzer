@@ -4,31 +4,35 @@ import sys
 import re
 from translit import translit
 
-yek = "êk"
 yek_vocalic = "yek"
 ke = "ke"
-eke = "eke"
 kan = "kan"
-ekan = "ekan"
-open_iza = "e"
 open_iza_voc = "ye"
-closed_iza = "y"
 ane = "ane"
 
-# fname = "tabsep.txt"
-# counts = {}
-# with open(fname, "r", encoding="utf-8") as infile:
-#     for line in infile:
-#         try:
-#             count, word = line.strip("\n").split("\t")
-#         except ValueError:
-#             continue
-#         counts[word.strip()] = int(count)
-#
-# for item in counts.keys():
-#     stem = item
-#     search = item + kan
-#     if search in counts:
-#         print(item, counts[item], search, counts[search])
+def noncap(term):
+    return "(?:" + term + ")"
 
-print(translit("ane"))
+def cons_noun(lexeme):
+    o = "|"
+    ek = "êk"
+    eke = "eke"
+    ekan = "ekan"
+    open_iza = "e"
+    closed_iza = "y"
+    poss = ["m","t","y","man","tan","yan"]
+    bare = lexeme
+    indef = lexeme + ek
+    definite = lexeme + eke
+    plurdef = lexeme + ekan
+    bases = [bare,indef,definite,plurdef]
+    forms = list(bases)
+    for base in bases:
+        for p in poss:
+            forms.append(base + p)
+        forms.append(base + closed_iza)
+    forms.append(bare + open_iza)
+    for item in forms:
+        print(translit(item))
+
+cons_noun("ziman")
