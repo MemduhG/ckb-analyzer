@@ -30,13 +30,7 @@ LEXICON Root
 
 NounRoot ;
 
-
-LEXICON RegNounInfl
-
-%<n%>%<sg%>: # ;
-%<n%>%<pl%>:%>s # ;
-
-LEXICON KtawNoun
+LEXICON Noun
 
 %<n%>%<sg%>%<abs%>: # ;
 %<n%>%<sg%>%<def%>:%>eke # ;
@@ -44,13 +38,18 @@ LEXICON KtawNoun
 %<n%>%<pl%>%<ind%>:%>an # ;
 %<n%>%<pl%>%<def%>:%>ekan # ;
 
+%<n%>%<sg%>%<abs%>%<ezl%>:%>i # ;
+%<n%>%<sg%>%<def%>%<ezl%>:%>ekei # ;
+%<n%>%<sg%>%<ind%>%<ezl%>:%>Eki # ;
+%<n%>%<pl%>%<ind%>%<ezl%>:%>ani # ;
+%<n%>%<pl%>%<def%>%<ezl%>:%>ekani # ;
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !!!                          L E X I C O N                                  !!!
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 LEXICON NounRoot
 
-ktaw:ktaw KtawNoun ;
+ktaw:ktaw Noun ;
 
 
 ! Resources:
