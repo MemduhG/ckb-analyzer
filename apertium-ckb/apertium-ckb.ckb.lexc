@@ -3,7 +3,8 @@
 Multichar_Symbols
 
 ! Part of speech categories
-%<n%>   ! Noun
+%<n%>     ! Noun
+%<adj%>   ! Adjective
 
 ! Number morphology
 %<pl%>  ! Plural
@@ -16,11 +17,14 @@ Multichar_Symbols
 
 ! Ezafet
 %<ezl%>  ! Loose ezafet
-%<ezo%>  ! Open ezafet
+%<ezc%>  ! Close ezafet
 
 ! Other symbols
 %>      ! Morpheme boundary
 
+! 2L stuff
+
+%{VSUF%}
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !!!                       M O R P H O T A C T I C S                         !!!
@@ -29,20 +33,34 @@ Multichar_Symbols
 LEXICON Root
 
 NounRoot ;
+AdjRoot ;
 
-
-LEXICON RegNounInfl
-
-%<n%>%<sg%>: # ;
-%<n%>%<pl%>:%>s # ;
-
-LEXICON KtawNoun
+LEXICON Noun
 
 %<n%>%<sg%>%<abs%>: # ;
-%<n%>%<sg%>%<def%>:%>eke # ;
-%<n%>%<sg%>%<ind%>:%>Ek # ;
-%<n%>%<pl%>%<ind%>:%>an # ;
-%<n%>%<pl%>%<def%>:%>ekan # ;
+%<n%>%<sg%>%<def%>:%>%{VSUF%}eke # ;
+%<n%>%<sg%>%<ind%>:%>%{VSUF%}êk # ;
+%<n%>%<sg%>%<dem%>:%>%{VSUF%}e # ;
+%<n%>%<pl%>%<ind%>:%>%{VSUF%}an # ;
+%<n%>%<pl%>%<def%>:%>%{VSUF%}ekan # ;
+
+%<n%>%<sg%>%<abs%>%<ezl%>:%>i # ;
+%<n%>%<sg%>%<def%>%<ezl%>:%>%{VSUF%}ekei # ;
+%<n%>%<sg%>%<ind%>%<ezl%>:%>%{VSUF%}êki # ;
+%<n%>%<pl%>%<ind%>%<ezl%>:%>%{VSUF%}ani # ;
+%<n%>%<pl%>%<def%>%<ezl%>:%>%{VSUF%}ekani # ;
+
+%<n%>%<sg%>%<abs%>%<ezc%>:%>%{VSUF%}e # ;
+
+LEXICON Adj
+
+%<adj%>: # ;
+%<adj%>%<dem%>:%>%{VSUF%}e # ;
+%<adj%>%<ind%>:%>%{VSUF%}êk # ;
+%<adj%>%<pl%>%<ind%>:%>%{VSUF%}an # ;
+%<adj%>%<pl%>%<dem%>:%>%{VSUF%}ane # ;
+%<adj%>%<pl%>%<def%>:%>%{VSUF%}ekan # ;
+
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !!!                          L E X I C O N                                  !!!
@@ -50,8 +68,19 @@ LEXICON KtawNoun
 
 LEXICON NounRoot
 
-ktaw:ktaw KtawNoun ;
+ktaw:ktaw Noun ;
+name:name Noun ;
+piaw:piaw Noun ;
+çayxane:çayxane Noun ;
+hotêl:hotêl Noun ;
+darga:darga Noun ;
+dê:dê Noun ;
+pê:pê Noun ;
 
+LEXICON AdjRoot
+
+gewre:gewre Adj ;
+drej:drej Adj ;
 
 ! Resources:
 ! http://wiki.apertium.org/wiki/Starting_a_new_language_with_HFST#Lexicon
