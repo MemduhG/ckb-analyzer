@@ -18,19 +18,13 @@ Rules
 
 "Remove final e if suffix starts with e or a"
 e:0 <=> _  %>:0 %{VSUF%}:0 [e | a] ;
+		a %>:0 %{VSUF%}:0 _ k ;		
 
-"Remove suffix e if stem ends with a"
-e:0 <=> a %>:0 %{VSUF%}:0 _ Cons ; 
-
- "Insert i between stem-final ê/a and a "
-%{VSUF%}:i <=> [ê | a] %>:0 _ a ;
-
- "Insert i between stem-final e and ê "
-%{VSUF%}:i <=> e %>:0 _ ê ;
-
- "Insert i between stem-final a and e"
-%{VSUF%}:i <=> [ê | a]  %>:0 _ [e | ê] ;
-
+"Insert i between stem-final a/e and ê "
+%{VSUF%}:i <=> e  %>:0 _ ê ;
+			   a  %>:0 _ [a|ê] ;
+			   a  %>:0 _ e [# | %>:0] ;
+				
 
 ! Resources:
 ! http://wiki.apertium.org/wiki/Starting_a_new_language_with_HFST#Enter_twol

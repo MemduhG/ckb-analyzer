@@ -34,6 +34,20 @@ LEXICON Root
 
 NounRoot ;
 AdjRoot ;
+Pronouns ; 
+
+LEXICON Clitics 
+
+%<sim%>:ş # ; 
+
+LEXICON Pronouns
+
+mn%<prn%>%<prs%>%<p1%>%<sg%>:mn # ;
+to%<prn%>%<prs%>%<p2%>%<sg%>:to # ;
+yeu%<prn%>%<prs%>%<p3%>%<sg%>:yeu # ;
+yême%<prn%>%<prs%>%<p3%>%<sg%>:yême # ;
+yêwe%<prn%>%<prs%>%<p3%>%<sg%>:yêwe # ;
+yewan%<prn%>%<prs%>%<p3%>%<sg%>:yewan # ;
 
 LEXICON Noun
 
@@ -55,7 +69,10 @@ LEXICON Noun
 LEXICON Adj
 
 %<adj%>: # ;
+%<adj%>%<cmp%>:%>tr # ;
+%<adj%>%<sup%>:%>trin # ;
 %<adj%>%<dem%>:%>%{VSUF%}e # ;
+%<adj%>%<sg%>%<def%>:%>%{VSUF%}eke # ;
 %<adj%>%<ind%>:%>%{VSUF%}êk # ;
 %<adj%>%<pl%>%<ind%>:%>%{VSUF%}an # ;
 %<adj%>%<pl%>%<dem%>:%>%{VSUF%}ane # ;
@@ -73,14 +90,16 @@ name:name Noun ;
 piaw:piaw Noun ;
 çayxane:çayxane Noun ;
 hotêl:hotêl Noun ;
-darga:darga Noun ;
+derga:derga Noun ;
 dê:dê Noun ;
 pê:pê Noun ;
+kuř:kuř Noun ;
+pare:pare Noun ;
 
 LEXICON AdjRoot
 
 gewre:gewre Adj ;
-drej:drej Adj ;
+drêj:drêj Adj ;
 
 ! Resources:
 ! http://wiki.apertium.org/wiki/Starting_a_new_language_with_HFST#Lexicon
