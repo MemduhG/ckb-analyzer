@@ -1,7 +1,7 @@
 Alphabet
  A B Ç D E Ê Ä F G H I J Ž K L M N Ň O Ö P R S Ş T U Ü W Y Ý Z Î
  a b ç d e ê ä f g h i j ž k l m n ň o ö p r s ş t u ü w y ý z î
- %{A%}:a %>:0 %[%+prog%]:0 %[%+subj%]:0 ;
+%>:0 %[%+prog%]:0 %[%+subj%]:0 ;
 
 Sets
 
@@ -14,7 +14,7 @@ Cons = B C Ç D F G H J K L M N P Q R S T V W X Y Z
 Rules 
 
 "Dummy rule"
-a:a => a _ a # ;
+%[%+prog%]:0 => a _ a .#. ;
 
 !"Match -de or -a prefix"
 !%[%+prog%]:0 <=> _ (:*) %[%+prog%]:0 ;

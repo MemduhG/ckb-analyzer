@@ -44,6 +44,14 @@ Multichar_Symbols
 %[%+subj%]
 %+
 
+! Flags
+@P.Asp.Prog@
+@R.Asp.Prog@
+
+@P.Mood.Subj@
+@R.Mood.Subj@
+@P.POL.NEG@
+@R.POL.NEG@
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !!!                       M O R P H O T A C T I C S                         !!!
@@ -70,6 +78,9 @@ LEXICON Cop
 
 bwwn%<vbcop%>%<past%>%<p1%>%<sg%>:bwwm # ;
 bwwn%<vbcop%>%<past%>%<p3%>%<sg%>:bww # ;
+bwwn%<vbcop%>%<past%>%<p2%>%<pl%>:bwwn # ;
+bwwn%<vbcop%>%<past%>%<p3%>%<pl%>:bwwn # ;
+bwwn%<vbcop%>%<inf%>:bwwn # ;
 bwwn%<vbcop%>%<past%>%<neg%>%<p3%>%<sg%>:nebww # ;
 bwwn%<vbcop%>%<perf%>%<p3%>%<sg%>:bwwe # ;
 bwwn%<vbcop%>%<perf%>%<neg%>%<p3%>%<sg%>:nebwwe # ;
@@ -108,12 +119,12 @@ yême%<prn%>%<prs%>%<p3%>%<sg%>:yême # ;
 yêwe%<prn%>%<prs%>%<p3%>%<sg%>:yêwe # ;
 yewan%<prn%>%<prs%>%<p3%>%<sg%>:yewan # ;
 
-LEXICON Dets
 
-yem%<det%>%<dem%>%<p3%>%<sg%>:yem # ;
-her%<det%>%<dem%>:her # ;
-çend%<det%>%<qnt%>:çend # ;
+LEXICON DET-DEM
+%<det%>%<dem%>: # ;
 
+LEXICON DET-QNT
+%<det%>%<qnt%>: # ;
 
 LEXICON n__derga
 
@@ -241,10 +252,10 @@ LEXICON tv__krd
 
 LEXICON tv__k 
 
-%<v%>%<tv%>%<pri%>%[%+prog%]: pres__k ;
-%<v%>%<tv%>%<sub%>%[%+subj%]: pres__k ;
-%<v%>%<tv%>%<neg%>%<pri%>%[%+prog%]: pres__k ;
-%<v%>%<tv%>%<neg%>%<sub%>%[%+subj%]: pres__k ;
+%<v%>%<tv%>%<pri%>@R.Asp.Prog@:@R.Asp.Prog@ pres__k ;
+%<v%>%<tv%>%<sub%>@R.Mood.Subj@:@R.Mood.Subj@ pres__k ;
+%<v%>%<tv%>%<neg%>%<pri%>@R.Asp.Prog@:@R.POL.NEG@ pres__k ;
+%<v%>%<tv%>%<neg%>%<sub%>@R.Mood.Subj@@R.POL.NEG@:@R.Mood.Subj@@R.POL.NEG@ pres__k ;
 
 LEXICON NP_pakstan
 %<np%>%<top%>%<sg%>%<abs%>: # ;
@@ -269,9 +280,19 @@ LEXICON NP_pakstan
 !!!                          L E X I C O N                                  !!!
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
+LEXICON Dets
+
+yem%<det%>%<dem%>%<p3%>%<sg%>:yem # ;
+her:her DET-QNT ;
+çend:çend DET-QNT ; 
+hemww:hemww DET-QNT ;
+
 LEXICON ConjRoot
 
 w:w CC ;
+we:we CC ;
+ia:ia CC ;
+ian:ian CC ;
 bełam:bełam CC ;
 ke:ke CS ;
 ke:kh CS ; !typo
@@ -283,6 +304,7 @@ le:lh Pr ;
 wek:wek Pr ;
 leser:leser Pr ;
 be:be Pr ;
+be:bh Pr ; ! Typoe
 bo:bo Pr ;
 legeł:legeł Pr ;
 ser:ser Pr ;
@@ -290,6 +312,7 @@ ser:ser Pr ;
 LEXICON NounRoot
 
 ktaw:ktaw n__ktaw ;
+nêwan:nêwan  n__ktaw ;
 brin:brin n__ktaw ;
 piaw:piaw n__ktaw ;
 hotêl:hotêl n__ktaw ;
@@ -306,10 +329,14 @@ ser:ser n__ktaw ;
 iekgrtww:iekgrtww  n__ktaw ;
 zman:zman  n__ktaw ;
 xełk:xełk  n__ktaw ;
+yasaiş:yasaiş n__ktaw ;
+şarstan:şarstan  n__ktaw ;
+sał:sał   n__ktaw ;
 
 dê:dê n__ktaw ;
 pê:pê n__ktaw ;
 name:nam n__nam_e ;
+kobwwnewe:kobwwnew n__nam_e ;
 jmare:jmar n__nam_e ;
 pare:par n__nam_e ;
 nawçe:nawç n__nam_e ;
@@ -328,6 +355,7 @@ LEXICON AdjRoot
 
 gewre:gewr adj__gewre ;
 drêj:drêj adj__drej ;
+dj:dj adj__drej ;
 sewz:sewz adj__drej ; 
 zeḣmet:zeḣmet adj__drej ;
 
@@ -347,14 +375,15 @@ krdn:k tv__k ;
 
 LEXICON Prefix
 
-%[%+subj%]:b Verb_Pres ; 
-%[%+prog%]:de Verb_Pres ;
+@P.Mood.Subj@:@P.Mood.Subj@b Verb_Pres ; 
+@P.Asp.Prog@:@P.Asp.Prog@de Verb_Pres ;
 
 
 LEXICON NPs
 
 kwrdstan:kwrdstan NP_pakstan ;
 pakstan:pakstan NP_pakstan ;
+yêran:yêran NP_pakstan ;
 
 ! Resources:
 ! http://wiki.apertium.org/wiki/Starting_a_new_language_with_HFST#Lexicon
