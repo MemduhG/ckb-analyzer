@@ -1,11 +1,8 @@
 Alphabet
- A B Ç D E Ê Ä F G H I J Ž K L M N Ň O Ö P R S Ş T U Ü W Y Ý Z
- a b ç d e ê ä f g h i j ž k l m n ň o ö p r s ş t u ü w y ý z
- %{A%}:a %>:0  
-%{VSUF%}:0 
-%{VSUF%}:i
+ A B Ç D E Ê Ä F G H I J Ž K L M N Ň O Ö P R S Ş T U Ü W Y Ý Z Î
+ a b ç d e ê ä f g h i j ž k l m n ň o ö p r s ş t u ü w y ý z î
+ %{A%}:a %>:0 %[%+prog%]:0 %[%+subj%]:0 ;
 
-;
 Sets
 
 Vowel = A E Ä I O Ö U Ü Y Ý Ê
@@ -16,15 +13,19 @@ Cons = B C Ç D F G H J K L M N P Q R S T V W X Y Z
 ;
 Rules 
 
-"Remove final e if suffix starts with e or a"
-e:0 <=> _  %>:0 %{VSUF%}:0 [e | a] ;
-		a %>:0 %{VSUF%}:0 _ k ;		
+"Dummy rule"
+a:a => a _ a # ;
 
-"Insert i between stem-final a/e and ê "
-%{VSUF%}:i <=> e  %>:0 _ ê ;
-			   a  %>:0 _ [a|ê] ;
-			   a  %>:0 _ e [# | %>:0] ;
-				
+!"Match -de or -a prefix"
+!%[%+prog%]:0 <=> _ (:*) %[%+prog%]:0 ;
+
+
+
+!"Insert i between stem-final a/e and ê "
+!%{VSUF%}:i <=> e  %>:0 _ ê ;
+!			   a  %>:0 _ [a|ê] ;
+!			   a  %>:0 _ e [# | %>:0] ;
+!				
 
 ! Resources:
 ! http://wiki.apertium.org/wiki/Starting_a_new_language_with_HFST#Enter_twol

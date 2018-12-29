@@ -5,6 +5,15 @@ Multichar_Symbols
 ! Part of speech categories
 %<n%>     ! Noun
 %<adj%>   ! Adjective
+%<v%>     ! Verb
+
+! Verbal stuff
+%<tv%>     ! Transitive  Verb
+%<iv%>     ! 
+%<pri%>     ! 
+%<sub%>     ! 
+%<neg%>     ! 
+%<past%>     ! 
 
 ! Number morphology
 %<pl%>  ! Plural
@@ -15,9 +24,15 @@ Multichar_Symbols
 %<def%>  ! Indefinite
 %<ind%>  ! Definite
 
+%<det%>  ! Determiner
+
 ! Ezafet
 %<ezl%>  ! Loose ezafet
 %<ezc%>  ! Close ezafet
+
+%<pr%>   ! Preposition
+%<post%> ! Postposition
+%<cnjcoo%> ! Coordinating Conjunction
 
 ! Other symbols
 %>      ! Morpheme boundary
@@ -25,6 +40,10 @@ Multichar_Symbols
 ! 2L stuff
 
 %{VSUF%}
+%[%+prog%]
+%[%+subj%]
+%+
+
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !!!                       M O R P H O T A C T I C S                         !!!
@@ -32,9 +51,49 @@ Multichar_Symbols
 
 LEXICON Root
 
+ConjRoot ;
+PrRoot ;
 NounRoot ;
 AdjRoot ;
 Pronouns ; 
+AdvRoot ;
+Dets ;
+Verb ;
+Cop ;
+Haver ;
+NPs ;
+Numbers ;
+Prefix ;
+Verb_Past ;
+
+LEXICON Cop
+
+bwwn%<vbcop%>%<past%>%<p1%>%<sg%>:bwwm # ;
+bwwn%<vbcop%>%<past%>%<p3%>%<sg%>:bww # ;
+bwwn%<vbcop%>%<past%>%<neg%>%<p3%>%<sg%>:nebww # ;
+bwwn%<vbcop%>%<perf%>%<p3%>%<sg%>:bwwe # ;
+bwwn%<vbcop%>%<perf%>%<neg%>%<p3%>%<sg%>:nebwwe # ;
+
+LEXICON Haver
+
+hebwwn%<vbcop%>%<pri%>%<p3%>%<sg%>:heie # ;
+hebwwn%<vbcop%>%<past%>%<p3%>%<sg%>:hebww # ;
+hebwwn%<vbcop%>%<neg%>%<pri%>%<p3%>%<sg%>:nie # ;
+hebwwn%<vbcop%>%<past%>%<neg%>%<p3%>%<sg%>:henebww # ;
+
+LEXICON Num 
+%<num%>: # ;
+
+LEXICON Ord
+
+%<num%>%<ord%>: # ;
+
+LEXICON Numbers
+
+iek:iek Num ;
+iekem:iekem Ord ;
+dww:dww Num ;
+
 
 LEXICON Clitics 
 
@@ -44,62 +103,258 @@ LEXICON Pronouns
 
 mn%<prn%>%<prs%>%<p1%>%<sg%>:mn # ;
 to%<prn%>%<prs%>%<p2%>%<sg%>:to # ;
-yeu%<prn%>%<prs%>%<p3%>%<sg%>:yeu # ;
+yew%<prn%>%<prs%>%<p3%>%<sg%>:yew # ;
 yême%<prn%>%<prs%>%<p3%>%<sg%>:yême # ;
 yêwe%<prn%>%<prs%>%<p3%>%<sg%>:yêwe # ;
 yewan%<prn%>%<prs%>%<p3%>%<sg%>:yewan # ;
 
-LEXICON Noun
+LEXICON Dets
+
+yem%<det%>%<dem%>%<p3%>%<sg%>:yem # ;
+her%<det%>%<dem%>:her # ;
+çend%<det%>%<qnt%>:çend # ;
+
+
+LEXICON n__derga
 
 %<n%>%<sg%>%<abs%>: # ;
-%<n%>%<sg%>%<def%>:%>%{VSUF%}eke # ;
-%<n%>%<sg%>%<ind%>:%>%{VSUF%}êk # ;
-%<n%>%<sg%>%<dem%>:%>%{VSUF%}e # ;
-%<n%>%<pl%>%<ind%>:%>%{VSUF%}an # ;
-%<n%>%<pl%>%<def%>:%>%{VSUF%}ekan # ;
+%<n%>%<sg%>%<def%>:%>ke # ;
+%<n%>%<sg%>%<ind%>:%>iêk # ;
+%<n%>%<sg%>%<dem%>:%>ie # ;
+%<n%>%<pl%>%<ind%>:%>n # ;
+%<n%>%<pl%>%<def%>:%>kan # ;
 
 %<n%>%<sg%>%<abs%>%<ezl%>:%>i # ;
-%<n%>%<sg%>%<def%>%<ezl%>:%>%{VSUF%}ekei # ;
-%<n%>%<sg%>%<ind%>%<ezl%>:%>%{VSUF%}êki # ;
-%<n%>%<pl%>%<ind%>%<ezl%>:%>%{VSUF%}ani # ;
-%<n%>%<pl%>%<def%>%<ezl%>:%>%{VSUF%}ekani # ;
+%<n%>%<sg%>%<def%>%<ezl%>:%>kei # ;
+%<n%>%<sg%>%<ind%>%<ezl%>:%>iêki # ;
+%<n%>%<pl%>%<ind%>%<ezl%>:%>ni # ;
+%<n%>%<pl%>%<def%>%<ezl%>:%>kani # ;
 
-%<n%>%<sg%>%<abs%>%<ezc%>:%>%{VSUF%}e # ;
+%<n%>%<sg%>%<abs%>%<ezc%>:%>ie # ;
 
-LEXICON Adj
+
+LEXICON n__ktaw
+
+%<n%>%<sg%>%<abs%>: # ;
+%<n%>%<sg%>%<def%>:%>eke # ;
+%<n%>%<sg%>%<ind%>:%>êk # ;
+%<n%>%<sg%>%<dem%>:%>e # ;
+%<n%>%<pl%>%<ind%>:%>an # ;
+%<n%>%<pl%>%<def%>:%>ekan # ;
+
+%<n%>%<sg%>%<abs%>%<ezl%>:%>i # ;
+%<n%>%<sg%>%<def%>%<ezl%>:%>ekei # ;
+%<n%>%<sg%>%<ind%>%<ezl%>:%>êki # ;
+%<n%>%<pl%>%<ind%>%<ezl%>:%>ani # ;
+%<n%>%<pl%>%<def%>%<ezl%>:%>ekani # ;
+
+%<n%>%<sg%>%<abs%>%<ezc%>:%>e # ;
+%<n%>%<pl%>%<abs%>%<ezc%>:%>ane # ;
+
+LEXICON n__nam_e
+
+%<n%>%<sg%>%<abs%>:%>e # ;
+%<n%>%<sg%>%<def%>:%>eke # ;
+%<n%>%<sg%>%<ind%>:%>eiek # ;
+%<n%>%<sg%>%<dem%>:%>eie # ;
+%<n%>%<pl%>%<ind%>:%>an # ;
+%<n%>%<pl%>%<def%>:%>ekan # ;
+
+%<n%>%<sg%>%<abs%>%<ezl%>:%>ei # ;
+%<n%>%<sg%>%<def%>%<ezl%>:%>ekei # ;
+%<n%>%<sg%>%<ind%>%<ezl%>:%>eieki # ;
+%<n%>%<pl%>%<ind%>%<ezl%>:%>ani # ;
+%<n%>%<pl%>%<def%>%<ezl%>:%>ekani # ;
+
+%<n%>%<sg%>%<abs%>%<ezc%>:%>e # ;
+%<n%>%<pl%>%<abs%>%<ezc%>:%>ane # ;
+
+
+LEXICON adj__drej
 
 %<adj%>: # ;
 %<adj%>%<cmp%>:%>tr # ;
 %<adj%>%<sup%>:%>trin # ;
-%<adj%>%<dem%>:%>%{VSUF%}e # ;
-%<adj%>%<sg%>%<def%>:%>%{VSUF%}eke # ;
-%<adj%>%<ind%>:%>%{VSUF%}êk # ;
-%<adj%>%<pl%>%<ind%>:%>%{VSUF%}an # ;
-%<adj%>%<pl%>%<dem%>:%>%{VSUF%}ane # ;
-%<adj%>%<pl%>%<def%>:%>%{VSUF%}ekan # ;
+%<adj%>%<dem%>:%>e # ;
+%<adj%>%<sg%>%<def%>:%>eke # ;
+%<adj%>%<ind%>:%>êk # ;
+%<adj%>%<pl%>%<ind%>:%>an # ;
+%<adj%>%<pl%>%<dem%>:%>ane # ;
+%<adj%>%<pl%>%<def%>:%>ekan # ;
+
+
+LEXICON adj__gewre
+
+%<adj%>:e # ;
+%<adj%>%<cmp%>:e%>tr # ;
+%<adj%>%<sup%>:e%>trin # ;
+%<adj%>%<dem%>:e # ;
+%<adj%>%<sg%>%<def%>:e%>ke # ;
+%<adj%>%<ind%>:e%>iek # ;
+%<adj%>%<pl%>%<ind%>:%>an # ;
+%<adj%>%<pl%>%<dem%>:%>ane # ;
+%<adj%>%<pl%>%<def%>:%>ekan # ;
+
+
+LEXICON CC
+%<cnjcoo%>: # ;
+
+LEXICON CS
+%<cnjsub%>: # ;
+
+LEXICON Pr
+%<pr%>: # ;
+
+LEXICON Adv
+%<adv%>: # ;
+
+LEXICON cons_past
+%<p1%>%<sg%>:%>m # ;
+%<p2%>%<sg%>:%>i # ;
+%<p2%>%<sg%>:%>it # ;
+%<p3%>%<sg%>: # ;
+%<p1%>%<pl%>:%>in # ;
+%<p2%>%<pl%>:%>n # ;
+%<p3%>%<pl%>:%>n # ;
+
+LEXICON past__krd 
+
+%<past%>: cons_past ;
+%<inf%>:%>n # ;
+%<perf%>:wwe # ;
+
+LEXICON pres__k
+
+%<p1%>%<sg%>:%>em # ;
+%<p2%>%<sg%>:%>ei # ;
+%<p2%>%<sg%>:%>eit # ;
+%<p3%>%<sg%>:%>a # ;
+%<p3%>%<sg%>:%>at # ;
+%<p1%>%<pl%>:%>ein # ;
+%<p2%>%<pl%>:%>en # ;
+%<p3%>%<pl%>:%>en # ;
+
+
+LEXICON tv__krd 
+
+%<v%>%<tv%>: past__krd ;
+
+LEXICON tv__k 
+
+%<v%>%<tv%>%<pri%>%[%+prog%]: pres__k ;
+%<v%>%<tv%>%<sub%>%[%+subj%]: pres__k ;
+%<v%>%<tv%>%<neg%>%<pri%>%[%+prog%]: pres__k ;
+%<v%>%<tv%>%<neg%>%<sub%>%[%+subj%]: pres__k ;
+
+LEXICON NP_pakstan
+%<np%>%<top%>%<sg%>%<abs%>: # ;
+!%<n%>%<sg%>%<def%>:%>eke # ;
+!%<n%>%<sg%>%<ind%>:%>êk # ;
+%<np%>%<top%>%<sg%>%<dem%>:%>e # ;
+%<np%>%<top%>%<pl%>%<ind%>:%>an # ;
+!%<n%>%<pl%>%<def%>:%>ekan # ;
+
+%<np%>%<top%>%<sg%>%<abs%>%<ezl%>:%>i # ;
+!%<n%>%<sg%>%<def%>%<ezl%>:%>ekei # ;
+!%<n%>%<sg%>%<ind%>%<ezl%>:%>êki # ;
+%<np%>%<top%>%<pl%>%<ind%>%<ezl%>:%>ani # ;
+!%<n%>%<pl%>%<def%>%<ezl%>:%>ekani # ;
+
+%<np%>%<top%>%<sg%>%<abs%>%<ezc%>:%>e # ;
+%<np%>%<top%>%<pl%>%<abs%>%<ezc%>:%>ane # ;
+
 
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !!!                          L E X I C O N                                  !!!
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
+LEXICON ConjRoot
+
+w:w CC ;
+bełam:bełam CC ;
+ke:ke CS ;
+ke:kh CS ; !typo
+
+LEXICON PrRoot
+
+le:le Pr ;
+le:lh Pr ;
+wek:wek Pr ;
+leser:leser Pr ;
+be:be Pr ;
+bo:bo Pr ;
+legeł:legeł Pr ;
+ser:ser Pr ;
+
 LEXICON NounRoot
 
-ktaw:ktaw Noun ;
-name:name Noun ;
-piaw:piaw Noun ;
-çayxane:çayxane Noun ;
-hotêl:hotêl Noun ;
-derga:derga Noun ;
-dê:dê Noun ;
-pê:pê Noun ;
-kuř:kuř Noun ;
-pare:pare Noun ;
+ktaw:ktaw n__ktaw ;
+brin:brin n__ktaw ;
+piaw:piaw n__ktaw ;
+hotêl:hotêl n__ktaw ;
+kwř:kwř n__ktaw ;
+włat:włat n__ktaw ;
+naw:naw n__ktaw ;
+seġat:seġat n__ktaw ;
+yaşpez:yaşpez n__ktaw ;
+zor:zor n__ktaw ;
+şar:şar n__ktaw ;
+daniştwwan:daniştwwan n__ktaw ;
+yencwmen:yencwmen n__ktaw ;
+ser:ser n__ktaw ;
+iekgrtww:iekgrtww  n__ktaw ;
+zman:zman  n__ktaw ;
+xełk:xełk  n__ktaw ;
+
+dê:dê n__ktaw ;
+pê:pê n__ktaw ;
+name:nam n__nam_e ;
+jmare:jmar n__nam_e ;
+pare:par n__nam_e ;
+nawçe:nawç n__nam_e ;
+çayxane:çayxan n__nam_e ;
+netewe:netew n__nam_e ;
+laşe:laş n__nam_e ;
+bełge:bełg n__nam_e ;
+zorbe:zorb n__nam_e ;
+břiarname:břiarnam n__nam_e ;
+
+derga:derga n__derga ;
+parêzga:parêzga n__derga ;
+dwa:dwa n__derga ;
 
 LEXICON AdjRoot
 
-gewre:gewre Adj ;
-drêj:drêj Adj ;
+gewre:gewr adj__gewre ;
+drêj:drêj adj__drej ;
+sewz:sewz adj__drej ; 
+zeḣmet:zeḣmet adj__drej ;
+
+LEXICON AdvRoot
+
+herweha:herweha Adv ;
+zor:zor Adv ;
+her:her Adv ;
+
+LEXICON Verb_Past
+
+krdn:krd tv__krd ;
+
+LEXICON Verb_Pres 
+
+krdn:k tv__k ;
+
+LEXICON Prefix
+
+%[%+subj%]:b Verb_Pres ; 
+%[%+prog%]:de Verb_Pres ;
+
+
+LEXICON NPs
+
+kwrdstan:kwrdstan NP_pakstan ;
+pakstan:pakstan NP_pakstan ;
 
 ! Resources:
 ! http://wiki.apertium.org/wiki/Starting_a_new_language_with_HFST#Lexicon
