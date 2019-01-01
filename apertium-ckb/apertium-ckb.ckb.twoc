@@ -1,0 +1,163 @@
+! We should probably have all the possible 
+! symbols on the surface (not morphotactic!) side here
+Alphabet
+
+ А Б В Г Д Е Ё Ж З И И К Ӄ Л М Н Ң О Ө П Р С Т У Ү Ф Х Ц Ч Ш Щ Ь Ы Ъ Э Ю Я
+ а б в г д е ё ж з и й к ӄ л м н ң о ө п р с т у ү ф х ц ч ш щ ь ы ъ э ю я
+ 
+ %0 1 2 3 4 5 6 7 8 9
+
+ %+ 
+
+ %<v%>
+
+ %[%+рэ%]:0 
+ %[%+мыт%]:0 
+ %[%+мын%]:0 
+ %[%+мынъ%]:0 
+ %[%+м%]:0 
+ %[%+мъ%]:0 
+ %[%+ӄ%]:0 
+ %[%+н%]:0 
+ %[%+нэ%]:0 
+ %[%+т%]:0 
+ %[%+мык%]:0 
+ %[%+к%]:0 
+ %[%+ны%]:0  
+ %[%+нъ%]:0  
+
+ %[%+sg1%]:0  
+ %[%+pl1%]:0  
+ %[%+pl2%]:0  
+ %[%+sg2%]:0  
+ %[%+sp3%]:0  
+
+ %[%+ӄэна%]:0  
+ %[%+cond%]:0 
+ %[%+fut%]:0 
+ %[%+intn%]:0 
+ %[%+stat%]:0 
+ %[%+inv%]:0 
+
+ %[→%]:0 
+
+ %[%-prog%]:0 
+ %[%-neg%]:0 
+ %[%-subj%]:0  
+ %[%+prog%]:0 
+ %[%+neg%]:0 
+ %[%+subj%]:0  ;
+Sets 
+
+Verb = %<v%> ;
+
+Rules 
+
+"PRI/progressive prefix"
+%[%+prog%]:0 <=> _ (:*) %[%-prog%]:0 ; 
+
+"Subjunctive prefix"
+%[%+subj%]:0 <=> _ (:*) %[%-subj%]:0 ; 
+
+"Subjunctive prefix"
+%[%+neg%]:0 <=> _ (:*) %[%-neg%]:0 ; 
+
+"Circumfix Aorist т-[stem]-к (block [+т])"
+%[%+т%]:0 /<= _ ; 
+   except
+       _ (:*) %[%+к%]:0 ; 
+
+"Circumfix Aorist т-[stem]-к (block [+к])"
+%[%+к%]:0 /<= _ ; 
+   except
+       %[%+т%]:0 (:*) _ ; 
+
+"Circumfix Aorist мыт-[stem]-мык (block [+мыт])"
+%[%+мыт%]:0 /<= _ ; 
+   except
+       _ (:*) %[%+мык%]:0 ; 
+
+"Circumfix Aorist т-[stem]-к (block [+к])"
+%[%+к%]:0 /<= _ ; 
+   except
+       %[%+т%]:0 (:*) _ ; 
+
+"Circumfix Future рэ-[stem] (block [+рэ])"
+%[%+рэ%]:0 /<= _ ; 
+   except
+       _ (:*) %[%+fut%]:0 ; 
+
+"Circumfix Conditional рэ-[stem] (block [+fut])"
+%[%+fut%]:0 /<= _ ; 
+   except
+       %[%+рэ%]:0 (:*) _ ; 
+
+"Circumfix Conditional н-[stem] (block [+н])"
+Sx:0 /<= _ ;
+       except
+         _ (:*) [ %[%+cond%]:0 | %[%+intn%]:0 ] ; 
+     where Sx in ( %[%+н%] %[%+мъ%] %[%+мын%] %[%+мынъ%] %[%+ӄ%] ) ; 
+
+"Circumfix Conditional н-[stem] (block [+cond])"
+%[%+cond%]:0 /<= _ ; 
+   except
+       [ %[%+н%]:0 | %[%+мъ%]:0 | %[%+мынъ%]:0  ] (:*) _ ; 
+
+"Circumfix Intentional н-[stem] (block [+intn])"
+%[%+intn%]:0 /<= _ ; 
+   except
+       [ %[%+н%]:0 | %[%+м%]:0 | %[%+мын%]:0 | %[%+ӄ%]:0 ] (:*) _ ; 
+
+"м-[stem] "
+%[%+sg1%]:0 /<= _ ; 
+   except
+       [ %[%+м%]:0 ] (:*) _ ; 
+
+
+"ӄ-[stem] "
+Sx:0 /<= _ ;
+   except
+       [ %[%+ӄ%]:0 ] (:*) _ ; 
+   where Sx in ( %[%+sg2%] %[%+pl2%] )  ;
+
+"ӄ-[stem] "
+%[%+ӄ%]:0 /<= _ ; 
+   except
+       _ (:*) [ %[%+cond%]:0 | %[%+intn%]:0 ]  (:*) [ %[%+sg2%]:0 | %[%+pl2%]:0 ] ; 
+
+"н-[stem] "
+%[%+sp3%]:0 /<= _ ; 
+   except
+       [ %[%+н%]:0 ] (:*) _ ; 
+
+"н-[stem] "
+%[%+pl1%]:0 /<= _ ; 
+   except
+       [ %[%+мын%]:0 ] (:*) _ ; 
+
+
+"Circumfix "
+%[%+ны%]:0 /<= _ ; 
+   except
+       _ (:*) [ %[%+ӄэна%]:0 | %[%+stat%]:0 ] ; 
+
+"Circumfix"
+%[%+ӄэна%]:0 /<= _ ; 
+   except
+       %[%+ны%]:0 (:*) _ ; 
+
+"Circumfix "
+%[%+нэ%]:0 /<= _ ; 
+   except
+       _ (:*) %[%+inv%]:0 ; 
+
+"Circumfix"
+%[%+inv%]:0 /<= _ ; 
+   except
+       %[%+нэ%]:0 (:*) _ ; 
+
+"Incorp"
+%[→%]:0 /<= _ ;
+   except
+       .#. [ ?* - %[→%]: ]* _ [ ?* - %[→%]: ]* .#. ; 
+

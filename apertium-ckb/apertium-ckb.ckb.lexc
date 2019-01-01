@@ -42,7 +42,12 @@ Multichar_Symbols
 %{VSUF%}
 %[%+prog%]
 %[%+subj%]
+%[%-prog%]
+%[%-subj%]
 %+
+
+%[%+neg%]
+%[%-neg%]
 
 ! Flags
 @P.Asp.Prog@
@@ -66,13 +71,59 @@ AdjRoot ;
 Pronouns ; 
 AdvRoot ;
 Dets ;
-Verb ;
+! Verb ;
 Cop ;
 Haver ;
 NPs ;
 Numbers ;
 Prefix ;
 Verb_Past ;
+Hatin ;
+
+
+LEXICON Hatin
+
+hatin%<v%>%<iv%>%<inf%>:hatin # ;
+hatin%<v%>%<iv%>%<pri%>%<p1%>%<sg%>:dem # ;
+hatin%<v%>%<iv%>%<pri%>%<p2%>%<sg%>:dei # ;
+hatin%<v%>%<iv%>%<pri%>%<p2%>%<sg%>:deit # ;
+hatin%<v%>%<iv%>%<pri%>%<p1%>%<pl%>:dein # ;
+hatin%<v%>%<iv%>%<pri%>%<p2%>%<pl%>:den # ;
+hatin%<v%>%<iv%>%<pri%>%<p2%>%<pl%>:den # ;
+hatin%<v%>%<iv%>%<pri%>%<p1%>%<sg%>:iem # ;
+hatin%<v%>%<iv%>%<pri%>%<p2%>%<sg%>:iei # ;
+hatin%<v%>%<iv%>%<pri%>%<p2%>%<sg%>:ieit # ;
+hatin%<v%>%<iv%>%<pri%>%<p1%>%<pl%>:iein # ;
+hatin%<v%>%<iv%>%<pri%>%<p2%>%<pl%>:ien # ;
+hatin%<v%>%<iv%>%<pri%>%<p2%>%<pl%>:ien # ;
+hatin%<v%>%<iv%>%<pri%>%<neg%>%<p1%>%<sg%>:naiem # ;
+hatin%<v%>%<iv%>%<pri%>%<neg%>%<p2%>%<sg%>:naiei # ;
+hatin%<v%>%<iv%>%<pri%>%<neg%>%<p2%>%<sg%>:naieit # ;
+hatin%<v%>%<iv%>%<pri%>%<neg%>%<p3%>%<sg%>:naie # ;
+hatin%<v%>%<iv%>%<pri%>%<neg%>%<p3%>%<sg%>:naiet # ;
+hatin%<v%>%<iv%>%<pri%>%<neg%>%<p1%>%<pl%>:naiein # ;
+hatin%<v%>%<iv%>%<pri%>%<neg%>%<p2%>%<pl%>:naien # ;
+hatin%<v%>%<iv%>%<pri%>%<neg%>%<p3%>%<pl%>:naien # ;
+
+LEXICON Cop_Voc
+
+%+bwwn%<vbcop%>%<pri%>%<p1%>%<sg%>:m # ;
+%+bwwn%<vbcop%>%<pri%>%<p2%>%<sg%>:i # ;
+%+bwwn%<vbcop%>%<pri%>%<p2%>%<sg%>:it # ;
+%+bwwn%<vbcop%>%<pri%>%<p3%>%<sg%>:ie # ;
+%+bwwn%<vbcop%>%<pri%>%<p1%>%<pl%>:in # ;
+%+bwwn%<vbcop%>%<pri%>%<p2%>%<pl%>:n # ;
+%+bwwn%<vbcop%>%<pri%>%<p3%>%<pl%>:n # ;
+
+LEXICON Cop_Cons
+
+%+bwwn%<vbcop%>%<pri%>%<p1%>%<sg%>:m # ;
+%+bwwn%<vbcop%>%<pri%>%<p2%>%<sg%>:i # ;
+%+bwwn%<vbcop%>%<pri%>%<p2%>%<sg%>:it # ;
+%+bwwn%<vbcop%>%<pri%>%<p3%>%<sg%>:e # ;
+%+bwwn%<vbcop%>%<pri%>%<p1%>%<pl%>:in # ;
+%+bwwn%<vbcop%>%<pri%>%<p2%>%<pl%>:n # ;
+%+bwwn%<vbcop%>%<pri%>%<p3%>%<pl%>:n # ;
 
 LEXICON Cop
 
@@ -84,13 +135,13 @@ bwwn%<vbcop%>%<inf%>:bwwn # ;
 bwwn%<vbcop%>%<past%>%<neg%>%<p3%>%<sg%>:nebww # ;
 bwwn%<vbcop%>%<perf%>%<p3%>%<sg%>:bwwe # ;
 bwwn%<vbcop%>%<perf%>%<neg%>%<p3%>%<sg%>:nebwwe # ;
+bwwn%<vbcop%>%<neg%>%<pri%>%<p3%>%<sg%>:nie # ;
 
 LEXICON Haver
 
-hebwwn%<vbcop%>%<pri%>%<p3%>%<sg%>:heie # ;
-hebwwn%<vbcop%>%<past%>%<p3%>%<sg%>:hebww # ;
-hebwwn%<vbcop%>%<neg%>%<pri%>%<p3%>%<sg%>:nie # ;
-hebwwn%<vbcop%>%<past%>%<neg%>%<p3%>%<sg%>:henebww # ;
+hebwwn%<vbhaver%>%<pri%>%<p3%>%<sg%>:heie # ;
+hebwwn%<vbhaver%>%<past%>%<p3%>%<sg%>:hebww # ;
+hebwwn%<vbhaver%>%<past%>%<neg%>%<p3%>%<sg%>:henebww # ;
 
 LEXICON Num 
 %<num%>: # ;
@@ -104,11 +155,13 @@ LEXICON Numbers
 iek:iek Num ;
 iekem:iekem Ord ;
 dww:dww Num ;
+sê:sê Num ;
+
+pênc:pênc Num ;
 
 
-LEXICON Clitics 
-
-%<sim%>:ş # ; 
+!LEXICON Clitics 
+!%<sim%>:ş # ; 
 
 LEXICON Pronouns
 
@@ -120,8 +173,8 @@ yêwe%<prn%>%<prs%>%<p3%>%<sg%>:yêwe # ;
 yewan%<prn%>%<prs%>%<p3%>%<sg%>:yewan # ;
 
 
-LEXICON DET-DEM
-%<det%>%<dem%>: # ;
+!LEXICON DET-DEM
+!%<det%>%<dem%>: # ;
 
 LEXICON DET-QNT
 %<det%>%<qnt%>: # ;
@@ -129,11 +182,17 @@ LEXICON DET-QNT
 LEXICON n__derga
 
 %<n%>%<sg%>%<abs%>: # ;
+%<n%>%<sg%>%<abs%>: Cop_Voc ;
 %<n%>%<sg%>%<def%>:%>ke # ;
+%<n%>%<sg%>%<def%>:%>ke Cop_Voc ;
 %<n%>%<sg%>%<ind%>:%>iêk # ;
+%<n%>%<sg%>%<ind%>:%>iêk Cop_Cons ;
 %<n%>%<sg%>%<dem%>:%>ie # ;
+%<n%>%<sg%>%<dem%>:%>ie Cop_Voc ;
 %<n%>%<pl%>%<ind%>:%>n # ;
+%<n%>%<pl%>%<ind%>:%>n Cop_Cons ;
 %<n%>%<pl%>%<def%>:%>kan # ;
+%<n%>%<pl%>%<def%>:%>kan Cop_Cons ;
 
 %<n%>%<sg%>%<abs%>%<ezl%>:%>i # ;
 %<n%>%<sg%>%<def%>%<ezl%>:%>kei # ;
@@ -147,11 +206,17 @@ LEXICON n__derga
 LEXICON n__ktaw
 
 %<n%>%<sg%>%<abs%>: # ;
+%<n%>%<sg%>%<abs%>: Cop_Cons ;
 %<n%>%<sg%>%<def%>:%>eke # ;
+%<n%>%<sg%>%<def%>:%>eke Cop_Voc ;
 %<n%>%<sg%>%<ind%>:%>êk # ;
+%<n%>%<sg%>%<ind%>:%>êk Cop_Cons ;
 %<n%>%<sg%>%<dem%>:%>e # ;
+%<n%>%<sg%>%<dem%>:%>e Cop_Voc ;
 %<n%>%<pl%>%<ind%>:%>an # ;
+%<n%>%<pl%>%<ind%>:%>an Cop_Cons ;
 %<n%>%<pl%>%<def%>:%>ekan # ;
+%<n%>%<pl%>%<def%>:%>ekan Cop_Cons ;
 
 %<n%>%<sg%>%<abs%>%<ezl%>:%>i # ;
 %<n%>%<sg%>%<def%>%<ezl%>:%>ekei # ;
@@ -165,11 +230,17 @@ LEXICON n__ktaw
 LEXICON n__nam_e
 
 %<n%>%<sg%>%<abs%>:%>e # ;
+%<n%>%<sg%>%<abs%>:%>e Cop_Voc ;
 %<n%>%<sg%>%<def%>:%>eke # ;
+%<n%>%<sg%>%<def%>:%>eke Cop_Voc ;
 %<n%>%<sg%>%<ind%>:%>eiek # ;
+%<n%>%<sg%>%<ind%>:%>eiek Cop_Cons ;
 %<n%>%<sg%>%<dem%>:%>eie # ;
+%<n%>%<sg%>%<dem%>:%>eie Cop_Voc ;
 %<n%>%<pl%>%<ind%>:%>an # ;
+%<n%>%<pl%>%<ind%>:%>an Cop_Cons ;
 %<n%>%<pl%>%<def%>:%>ekan # ;
+%<n%>%<pl%>%<def%>:%>ekan Cop_Cons ;
 
 %<n%>%<sg%>%<abs%>%<ezl%>:%>ei # ;
 %<n%>%<sg%>%<def%>%<ezl%>:%>ekei # ;
@@ -245,17 +316,95 @@ LEXICON pres__k
 %<p2%>%<pl%>:%>en # ;
 %<p3%>%<pl%>:%>en # ;
 
+LEXICON pres__ç
+
+%<p1%>%<sg%>:%>m # ;
+%<p2%>%<sg%>:%>i # ;
+%<p2%>%<sg%>:%>it # ;
+%<p3%>%<sg%>:%>ê # ;
+%<p3%>%<sg%>:%>êt # ;
+%<p1%>%<pl%>:%>in # ;
+%<p2%>%<pl%>:%>n # ;
+%<p3%>%<pl%>:%>n # ;
+
+LEXICON pres__r_o
+
+%<p1%>%<sg%>:%>om # ;
+%<p2%>%<sg%>:%>oit # ;
+! %<p2%>%<sg%>:%>oi # ;
+%<p3%>%<sg%>:%>wa # ;
+%<p3%>%<sg%>:%>wat # ;
+%<p1%>%<pl%>:%>oin # ;
+%<p2%>%<pl%>:%>on # ;
+%<p3%>%<pl%>:%>on # ;
+
+LEXICON pres__ger
+
+%<p1%>%<sg%>:%>êm # ;
+%<p2%>%<sg%>:%>êi # ;
+%<p2%>%<sg%>:%>êit # ;
+%<p3%>%<sg%>:%>ê # ;
+%<p3%>%<sg%>:%>êt # ;
+%<p1%>%<pl%>:%>êin # ;
+%<p2%>%<pl%>:%>ên # ;
+%<p3%>%<pl%>:%>ên # ;
+
 
 LEXICON tv__krd 
 
 %<v%>%<tv%>: past__krd ;
 
+LEXICON iv__ç
+
+%<v%>%<iv%>%<pri%>%[%-prog%]: pres__ç ;
+%<v%>%<iv%>%<sub%>%[%-subj%]: pres__ç ;
+%<v%>%<iv%>%<neg%>%<pri%>%[%-neg%][%-prog%]: pres__ç ;
+%<v%>%<iv%>%<neg%>%<sub%>%[%-neg%][%-subj%]: pres__ç ;
+
+LEXICON tv__nwws
+
+%<v%>%<tv%>%<pri%>%[%-prog%]: pres__ç ;
+%<v%>%<tv%>%<sub%>%[%-subj%]: pres__ç ;
+%<v%>%<tv%>%<neg%>%<pri%>%[%-neg%][%-prog%]: pres__ç ;
+%<v%>%<tv%>%<neg%>%<sub%>%[%-neg%][%-subj%]: pres__ç ;
+
+LEXICON iv__g
+
+%<v%>%<iv%>%<pri%>%[%-prog%]: pres__k ;
+%<v%>%<iv%>%<sub%>%[%-subj%]: pres__k ;
+%<v%>%<iv%>%<neg%>%<pri%>: pres__k ;
+%<v%>%<iv%>%<neg%>%<sub%>: pres__k ;
+
+
+LEXICON iv__ger_e 
+
+%<v%>%<iv%>%<pri%>%[%-prog%]: pres__ger ;
+%<v%>%<iv%>%<sub%>%[%-subj%]: pres__ger ;
+%<v%>%<iv%>%<neg%>%<pri%>: pres__ger ;
+%<v%>%<iv%>%<neg%>%<sub%>: pres__ger ;
+
+LEXICON iv__r_o 
+
+%<v%>%<iv%>%<pri%>%[%-prog%]: pres__r_o ;
+%<v%>%<iv%>%<sub%>%[%-subj%]: pres__r_o ;
+%<v%>%<iv%>%<neg%>%<pri%>: pres__r_o ;
+%<v%>%<iv%>%<neg%>%<sub%>: pres__r_o ;
+
+LEXICON tv__x_o 
+
+%<v%>%<tv%>%<pri%>%[%-prog%]: pres__r_o ;
+%<v%>%<tv%>%<sub%>%[%-subj%]: pres__r_o ;
+%<v%>%<tv%>%<neg%>%<pri%>: pres__r_o ;
+%<v%>%<tv%>%<neg%>%<sub%>: pres__r_o ;
+
+
+
 LEXICON tv__k 
 
-%<v%>%<tv%>%<pri%>@R.Asp.Prog@:@R.Asp.Prog@ pres__k ;
-%<v%>%<tv%>%<sub%>@R.Mood.Subj@:@R.Mood.Subj@ pres__k ;
-%<v%>%<tv%>%<neg%>%<pri%>@R.Asp.Prog@:@R.POL.NEG@ pres__k ;
-%<v%>%<tv%>%<neg%>%<sub%>@R.Mood.Subj@@R.POL.NEG@:@R.Mood.Subj@@R.POL.NEG@ pres__k ;
+%<v%>%<tv%>%<pri%>%[%-prog%]: pres__k ;
+%<v%>%<tv%>%<sub%>%[%-subj%]: pres__k ;
+%<v%>%<tv%>%<neg%>%<pri%>: pres__k ;
+%<v%>%<tv%>%<neg%>%<sub%>: pres__k ;
 
 LEXICON NP_pakstan
 %<np%>%<top%>%<sg%>%<abs%>: # ;
@@ -295,16 +444,20 @@ ia:ia CC ;
 ian:ian CC ;
 bełam:bełam CC ;
 ke:ke CS ;
+ta:ta CS ;
 ke:kh CS ; !typo
 
 LEXICON PrRoot
 
+ta:ta Pr ;
 le:le Pr ;
-le:lh Pr ;
+bê:bê Pr ;
+behoi:behoi Pr ;
+lemeř:lemeř Pr ;
+leber:leber Pr ;
 wek:wek Pr ;
 leser:leser Pr ;
 be:be Pr ;
-be:bh Pr ; ! Typoe
 bo:bo Pr ;
 legeł:legeł Pr ;
 ser:ser Pr ;
@@ -312,6 +465,10 @@ ser:ser Pr ;
 LEXICON NounRoot
 
 ktaw:ktaw n__ktaw ;
+gwnd:gwnd n__ktaw ;
+dest:dest n__ktaw ;
+kar:kar n__ktaw ;
+jian:jian n__ktaw ;
 nêwan:nêwan  n__ktaw ;
 brin:brin n__ktaw ;
 piaw:piaw n__ktaw ;
@@ -336,6 +493,7 @@ sał:sał   n__ktaw ;
 dê:dê n__ktaw ;
 pê:pê n__ktaw ;
 name:nam n__nam_e ;
+sede:sed n__nam_e ;
 kobwwnewe:kobwwnew n__nam_e ;
 jmare:jmar n__nam_e ;
 pare:par n__nam_e ;
@@ -355,9 +513,11 @@ LEXICON AdjRoot
 
 gewre:gewr adj__gewre ;
 drêj:drêj adj__drej ;
+drwst:drwst adj__drej ;
 dj:dj adj__drej ;
 sewz:sewz adj__drej ; 
 zeḣmet:zeḣmet adj__drej ;
+yekgrtww:yekgrtww adj__drej ;
 
 LEXICON AdvRoot
 
@@ -371,13 +531,28 @@ krdn:krd tv__krd ;
 
 LEXICON Verb_Pres 
 
+çwwn:ç iv__ç ;
+nwwsin:nwws tv__nwws ;
 krdn:k tv__k ;
+xstn:x tv__k ;
+brdn:b tv__k ;
+dan:d tv__k ;
+geiştn:g iv__g ;
+
+geřan:geř iv__ger_e ;
+roiştn:r iv__r_o ;
+xwardn:x tv__x_o ;
 
 LEXICON Prefix
 
-@P.Mood.Subj@:@P.Mood.Subj@b Verb_Pres ; 
-@P.Asp.Prog@:@P.Asp.Prog@de Verb_Pres ;
-
+%[%+bare%]: Verb_Pres ;
+%[%+subj%]:b Verb_Pres ; 
+%[%+subj%]: Verb_Pres ; 
+%[%+prog%]:de Verb_Pres ;
+%[%+prog%]:ye Verb_Pres ;
+%[%+prog%]%[%+neg%]:nede Verb_Pres ;
+%[%+prog%]%[%+neg%]:na Verb_Pres ;
+%[%+subj%]%[%+neg%]:ne Verb_Pres ;
 
 LEXICON NPs
 
